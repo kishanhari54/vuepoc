@@ -17,7 +17,7 @@
 
     <template v-slot:item="{ item, index }">
       <tr>
-        <td>{{ index }}</td>
+        <td>{{ index + 1 }}</td>
         <td>{{ item.process }}</td>
         <td>{{ item.description }}</td>
         <td class="action-buttons">

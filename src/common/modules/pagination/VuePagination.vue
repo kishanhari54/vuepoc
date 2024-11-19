@@ -55,18 +55,34 @@
 
 <script setup lang="ts">
 import { defineEmits, defineProps, ref, watch } from "vue";
-
+/*
 // Define types for props
 interface PaginationProps {
   currentPage: number;
   itemsPerPage: number;
   totalItems: number;
-  itemsPerPageOptions: number[];
-}
+  itemsPerPageOptions: number[]; // Corrected type for array
+} */
 
 // Props passed from the parent component
-const props = defineProps<PaginationProps>();
-
+const props = defineProps({
+  currentPage: {
+    type: Number,
+    required: true,
+  },
+  itemsPerPage: {
+    type: Number,
+    required: true,
+  },
+  totalItems: {
+    type: Number,
+    required: true,
+  },
+  itemsPerPageOptions: {
+    type: Array, // This properly types it as a number array
+    default: () => [5, 10, 15, 20, 25],
+  },
+});
 // Emit the page and itemsPerPage values back to the parent component
 const emit = defineEmits<{
   (e: "update:currentPage", newPage: number): void;
