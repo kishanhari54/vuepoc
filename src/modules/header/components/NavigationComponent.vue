@@ -4,14 +4,12 @@
       <router-link to="/dashboard"> Dashboard </router-link>
     </li>
     <li>
-      <router-link to="/masterprocess">Master Process</router-link>
+      <router-link to="/master/process">Master Process</router-link>
     </li>
   </ul>
 </template>
 
-<script setup>
-import { ref } from "vue";
-</script>
+<script setup></script>
 
 <style scoped>
 ul {
