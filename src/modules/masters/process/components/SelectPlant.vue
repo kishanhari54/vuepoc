@@ -47,7 +47,7 @@ const emit = defineEmits<{
 const onPlantSelected = (value: Plant | null): void => {
   // Emit an event with the selected plant value
   emit("plantSelected", value);
-  console.log(masterProcessStore);
+
   // Update Pinia store
   if (value) {
     masterProcessStore.setPlant(value); // Access `setPlant` method directly from the store

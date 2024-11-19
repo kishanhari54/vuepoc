@@ -14,25 +14,23 @@
     <template v-slot:loading>
       <v-skeleton-loader type="table-row@10"></v-skeleton-loader>
     </template>
-    <!-- Actions column template -->
-    <template v-slot:item="props">
+
+    <template v-slot:item="{ item, index }">
       <tr>
-        <td>{{ props.item.sno }}</td>
-        <td>{{ props.item.process }}</td>
-        <td>{{ props.item.description }}</td>
+        <td>{{ index }}</td>
+        <td>{{ item.process }}</td>
+        <td>{{ item.description }}</td>
         <td class="action-buttons">
           <!-- Action buttons with icons -->
-          <v-btn icon @click="editProcess(props.item)">
+          <v-btn icon @click="editProcess(item)">
             <v-icon>mdi-pencil</v-icon>
           </v-btn>
-          <v-btn icon @click="deleteProcess(props.item.id)">
+          <v-btn icon @click="deleteProcess(item.id)">
             <v-icon>mdi-delete</v-icon>
           </v-btn>
-          <v-btn icon @click="toggleActiveStatus(props.item)">
+          <v-btn icon @click="toggleActiveStatus(item)">
             <v-icon>{{
-              props.item.isActive
-                ? "mdi-toggle-switch"
-                : "mdi-toggle-switch-off"
+              item.isActive ? "mdi-toggle-switch" : "mdi-toggle-switch-off"
             }}</v-icon>
           </v-btn>
         </td>
@@ -63,15 +61,7 @@ import {
 } from "vue";
 import VuePagination from "../../../../common/modules/pagination/VuePagination.vue";
 
-// Define types for props
-interface Process {
-  id: number;
-  sno: string;
-  process: string;
-  description: string;
-  isActive: boolean;
-}
-
+import Process from "@/common/interfaces/Process.interface.ts";
 interface Props {
   selectedPlant: number | null;
   tableSearch: string;
