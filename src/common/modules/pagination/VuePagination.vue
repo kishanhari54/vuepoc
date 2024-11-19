@@ -99,8 +99,8 @@ const changePage = (newPage: number): void => {
 };
 </script>
 
-<style scoped>
+<style>
 .pagination {
-  height: 20%;
+  height: 100%;
 }
 </style>

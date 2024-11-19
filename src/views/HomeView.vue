@@ -1,7 +1,9 @@
 <template>
   <!-- <hello-world />-->
   <HeaderView></HeaderView>
-  <router-view></router-view>
+  <section class="route-content">
+    <router-view></router-view>
+  </section>
 </template>
 
 <script lang="ts">
@@ -26,5 +28,9 @@ export default defineComponent({
 .v-app-bar {
   background-color: white;
   color: black;
+}
+
+.route-content {
+  padding: 30px;
 }
 </style>

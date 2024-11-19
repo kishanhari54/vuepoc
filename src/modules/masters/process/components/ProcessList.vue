@@ -180,7 +180,7 @@ watch(
   (newPlantId) => {
     fetchProcesses(newPlantId);
   },
-  { immediate: true } // Trigger fetchProcesses immediately when component mounts
+  { immediate: false } // Trigger fetchProcesses immediately when component mounts
 );
 
 // Watch for changes in tableSearch prop
