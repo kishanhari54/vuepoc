@@ -2,7 +2,7 @@
   <section class="page-header">
     <div class="page-title">Master Process</div>
     <section class="page-actions">
-      <SearchProcess @searchProcess="searchProcess"></SearchProcess>
+      <SearchProcess @searchChanged="searchProcess"></SearchProcess>
       <DownloadList></DownloadList>
       <UploadList></UploadList>
       <AddProcess @addProcessButtonClicked="addNewProcess()"></AddProcess>
@@ -29,13 +29,13 @@
 </template>
 <script setup lang="ts">
 import { ref } from "vue";
-import SearchProcess from "../components/SearchProcess";
-import ProcessList from "../components/ProcessList";
-import SelectPlant from "../components/SelectPlant";
 import AddProcess from "../components/AddProcess";
-import UploadList from "../components/UploadList";
-import DownloadList from "../components/DownloadList";
 import AddProcessPopup from "../components/AddProcessPopup";
+import DownloadList from "../components/DownloadList";
+import ProcessList from "../components/ProcessList";
+import SearchProcess from "../components/SearchProcess";
+import SelectPlant from "../components/SelectPlant";
+import UploadList from "../components/UploadList";
 
 // Declare a reactive variable for selected plant
 const selectedPlant = ref(null);
