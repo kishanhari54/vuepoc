@@ -24,12 +24,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-/* Optional styles for your nav */
-.v-app-bar {
-  background-color: white;
-  color: black;
-}
-
 .route-content {
   padding: 30px;
 }

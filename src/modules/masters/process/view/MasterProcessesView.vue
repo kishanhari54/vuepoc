@@ -79,6 +79,20 @@ const editProcess = (id) => {
 .page-header {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+
+  .page-title {
+    font-family: Open Sans;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32.68px;
+    letter-spacing: 0.04em;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+  }
 }
 
 .page-actions {
