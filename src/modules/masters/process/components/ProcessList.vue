@@ -49,6 +49,7 @@
 </template>
 
 <script setup lang="ts">
+import Process from "@/common/interfaces/Process.interface.ts";
 import axios from "axios";
 import {
   computed,
@@ -60,8 +61,6 @@ import {
   watch,
 } from "vue";
 import VuePagination from "../../../../common/modules/pagination/VuePagination.vue";
-
-import Process from "@/common/interfaces/Process.interface.ts";
 interface Props {
   selectedPlant: number | null;
   tableSearch: string;
@@ -155,7 +154,7 @@ const editProcess = (process: Process): void => {
 const deleteProcess = async (id: number): Promise<void> => {
   try {
     const url = `http://localhost:3000/processes/${id}`;
-    const response = await axios.delete(url);
+    await axios.delete(url);
     const index = processes.value.findIndex((process) => process.id === id);
     if (index !== -1) {
       processes.value.splice(index, 1); // Remove from the list

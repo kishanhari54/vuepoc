@@ -83,7 +83,7 @@ const props = defineProps<{
   modelValue: boolean;
   //selectedPlant: number;
   mode: "add" | "edit"; // 'add' or 'edit'
-  processId: number | null; // Process ID for editing
+  processId: string | null; // Process ID for editing
 }>();
 
 const toast = useToast();
@@ -184,14 +184,14 @@ watch(
   () => props.modelValue,
   (newValue) => {
     dialog.value = newValue;
-    if (newValue && props.mode === "edit") {
+    if (newValue && props.mode === "edit" && props.processId) {
       fetchProcessData(props.processId);
     }
   }
 );
 
 // Fetch the process data when in edit mode
-const fetchProcessData = async (id: number | null): Promise<void> => {
+const fetchProcessData = async (id: string | null): Promise<void> => {
   try {
     const response = await axiosInstance.get(
       `http://localhost:3000/processes/${id}`

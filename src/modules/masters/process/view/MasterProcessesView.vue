@@ -39,7 +39,7 @@ import AddProcessPopup from "../components/AddProcessPopup";
 
 // Declare a reactive variable for selected plant
 const selectedPlant = ref(null);
-const tableSearch = ref(null);
+const tableSearch = ref("");
 let openDialogForm = ref(false);
 
 // New reactive variables for mode and processId
