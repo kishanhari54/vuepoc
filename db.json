@@ -1,0 +1,136 @@
+{
+  "plants": [
+    {
+      "id": "1",
+      "name": "Plant A",
+      "description": "Description for Plant A"
+    },
+    {
+      "id": "2",
+      "name": "Plant B",
+      "description": "Description for Plant B"
+    },
+    {
+      "id": "3",
+      "name": "Plant C",
+      "description": "Description for Plant C"
+    },
+    {
+      "id": "4",
+      "name": "Plant D",
+      "description": "Description for Plant D"
+    },
+    {
+      "id": "5",
+      "name": "Plant E",
+      "description": "Description for Plant E"
+    }
+  ],
+  "processes": [
+    {
+      "id": "1",
+      "process": "Grinding",
+      "description": "The grinding process of raw materials.",
+      "isActive": true,
+      "plantId": 1
+    },
+    {
+      "id": "2",
+      "process": "Packaging",
+      "description": "The packaging process for final products.",
+      "isActive": true,
+      "plantId": 1
+    },
+    {
+      "id": "3",
+      "process": "Shipping",
+      "description": "The process of shipping products to customers.",
+      "isActive": true,
+      "plantId": 1
+    },
+    {
+      "id": "4",
+      "process": "Assembly",
+      "description": "The assembly process of product components.",
+      "isActive": true,
+      "plantId": 2
+    },
+    {
+      "id": "5",
+      "process": "Testing",
+      "description": "Testing of product functionality and quality.",
+      "isActive": true,
+      "plantId": 2
+    },
+    {
+      "id": "6",
+      "process": "Painting",
+      "description": "The process of painting product surfaces.",
+      "isActive": true,
+      "plantId": 2
+    },
+    {
+      "id": "7",
+      "process": "Welding",
+      "description": "The process of welding product parts together.",
+      "isActive": true,
+      "plantId": 3
+    },
+    {
+      "id": "8",
+      "process": "Inspection",
+      "description": "Inspection of product integrity and safety.",
+      "isActive": true,
+      "plantId": 3
+    },
+    {
+      "id": "9",
+      "process": "Packaging",
+      "description": "The packaging process for large orders.",
+      "isActive": true,
+      "plantId": 3
+    },
+    {
+      "id": "10",
+      "process": "Grinding",
+      "description": "Grinding of metals for precise manufacturing.",
+      "isActive": true,
+      "plantId": 4
+    },
+    {
+      "id": "11",
+      "process": "Assembly",
+      "description": "Assembly of mechanical components.",
+      "isActive": true,
+      "plantId": 4
+    },
+    {
+      "id": "12",
+      "process": "Maintenance",
+      "description": "Routine maintenance of machinery and equipment.",
+      "isActive": true,
+      "plantId": 4
+    },
+    {
+      "id": "13",
+      "process": "Packaging",
+      "description": "Packaging of finished goods for distribution.",
+      "isActive": true,
+      "plantId": 5
+    },
+    {
+      "id": "14",
+      "process": "Labeling",
+      "description": "Labeling of products with correct information.",
+      "isActive": true,
+      "plantId": 5
+    },
+    {
+      "id": "15",
+      "process": "Storage",
+      "description": "Storing finished products in the warehouse.",
+      "isActive": true,
+      "plantId": 5
+    }
+  ]
+}
