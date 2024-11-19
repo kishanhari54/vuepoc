@@ -4,12 +4,36 @@
       <router-link to="/dashboard"> Dashboard </router-link>
     </li>
     <li>
-      <router-link to="/master/process">Master Process</router-link>
+      Master Process
+      <v-menu activator="parent">
+        <v-list>
+          <v-list-item
+            v-for="(item, index) in items"
+            :key="index"
+            :value="index"
+          >
+            <router-link :to="item.route">
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </router-link>
+          </v-list-item>
+        </v-list>
+      </v-menu>
     </li>
   </ul>
 </template>
 
-<script setup></script>
+<script setup>
+const items = [
+  {
+    title: "Process",
+    route: "master/process",
+  },
+  {
+    title: "Login",
+    route: "/login",
+  },
+];
+</script>
 
 <style scoped>
 ul {
@@ -18,12 +42,13 @@ ul {
   flex-direction: row;
   gap: 10px;
 
-  a {
+  li a {
     text-decoration: none; /* Remove underline */
     color: inherit; /* Inherit text color from parent */
     font-weight: normal; /* Reset any bold styling */
     color: #5a5a5a;
-
+  }
+  a {
     /* Styling for active links */ /* Use the default Vue Router classes to make active links bold */
     &.router-link-active {
       font-weight: bold;
