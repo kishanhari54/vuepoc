@@ -12,6 +12,25 @@ const routes: Array<RouteRecordRaw> = [
         name: "dashboard",
         component: () => import("../modules/dashboard/views/DashboardView.vue"),
       },
+      {
+        path: "master/process",
+        name: "process",
+        component: () =>
+          import("../modules/masters/process/view/MasterProcessesView.vue"),
+      },
+      /*{
+        path: "/masters",
+        name: "masters",
+        component: () => import("../modules/masters/view/MastersHome.vue"),
+        children: [
+          {
+            path: "/process",
+            name: "process",
+            component: () =>
+              import("../modules/masters/process/view/MasterProcessesView.vue"),
+          },
+        ],
+      },*/
     ],
   },
   {
