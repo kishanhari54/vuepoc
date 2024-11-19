@@ -13,15 +13,15 @@ export default {
     axiosInstance.interceptors.request.use(
       (config: InternalAxiosRequestConfig) => {
         // Access user token (replace with your logic)
-        let user = localStorage.getItem("user");
+        const user = localStorage.getItem("user");
         if (user) {
-          let token = JSON.parse(user).access_token;
-          let subTenant = JSON.parse(user).sub_tenant_id;
+          const token = JSON.parse(user).access_token;
+          const subTenant = JSON.parse(user).sub_tenant_id;
           if (token) {
             config.headers["Authorization"] = `Bearer ${token}`;
             config.headers["X-Apigateway-Api-Userinfo"] = `${token}`;
           }
-          let selectedTenantId = "5d003e36-3c76-4c20-95d8-037b9ff354ec"; // Replace with the actual tenant ID
+          const selectedTenantId = "5d003e36-3c76-4c20-95d8-037b9ff354ec"; // Replace with the actual tenant ID
           if (selectedTenantId) {
             config.headers["x-subtenant-id"] = subTenant || selectedTenantId; // Add selectedTenantId header
           }
