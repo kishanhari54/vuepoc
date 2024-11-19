@@ -152,11 +152,16 @@ const editProcess = (process: Process): void => {
 };
 
 // Delete process function
-const deleteProcess = (id: number): void => {
-  console.log("Deleting process with ID:", id);
-  const index = processes.value.findIndex((process) => process.id === id);
-  if (index !== -1) {
-    processes.value.splice(index, 1); // Remove from the list
+const deleteProcess = async (id: number): Promise<void> => {
+  try {
+    const url = `http://localhost:3000/processes/${id}`;
+    const response = await axios.delete(url);
+    const index = processes.value.findIndex((process) => process.id === id);
+    if (index !== -1) {
+      processes.value.splice(index, 1); // Remove from the list
+    }
+  } catch (error) {
+    console.error("Error Deleting", error);
   }
 };
 
