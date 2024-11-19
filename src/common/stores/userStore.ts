@@ -28,7 +28,7 @@ export const useUserStore = defineStore("user", () => {
       user.value = response.data;
       localStorage.setItem("user", JSON.stringify(response.data));
 
-      router.push("/alerts");
+      router.push("/dashboard");
     } catch (error) {
       // Handle error
       console.error(error);
