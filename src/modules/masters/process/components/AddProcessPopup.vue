@@ -87,7 +87,10 @@ import {
   watch,
 } from "vue";
 import { useToast } from "vue-toastification";
+import { useProcessService } from "../services/Process.service";
 import { useMasterProcessStore } from "../stores/useMasterProcessStore";
+
+const processService = useProcessService();
 
 // Define props to receive data from parent component
 const props = defineProps<{
@@ -149,28 +152,18 @@ const submitForm = async (): Promise<void> => {
 
   try {
     for (const process of newProcess) {
-      if (props.mode === "edit") {
-        const response = await axiosInstance.patch(
-          `http://localhost:3000/processes/${props.processId}`,
+      if (props.mode === "edit" && props.processId) {
+        const updatedProcess = await processService.updateProcess(
+          props.processId,
           {
             process: process.process,
             description: process.description,
-          },
-          {
-            headers: { "Content-Type": "application/json" },
           }
         );
-
-        ToastService.success(`Process ${response.data.process} Updated`);
+        ToastService.success(`Process ${updatedProcess.process} Updated`);
       } else {
-        const response = await axiosInstance.post(
-          "http://localhost:3000/processes",
-          process,
-          {
-            headers: { "Content-Type": "application/json" },
-          }
-        );
-        ToastService.success(`Process ${response.data.process} Added`);
+        const createdProcess = await processService.createProcess(process);
+        ToastService.success(`Process ${createdProcess.process} Added`);
       }
     }
 
