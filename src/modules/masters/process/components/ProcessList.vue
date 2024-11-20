@@ -50,7 +50,7 @@
 
 <script setup lang="ts">
 import Process from "@/common/interfaces/Process.interface.ts";
-import axios from "axios";
+import { ToastService } from "@/common/services/ToastNotification.service";
 import {
   computed,
   defineEmits,
@@ -61,10 +61,13 @@ import {
   watch,
 } from "vue";
 import VuePagination from "../../../../common/modules/pagination/VuePagination.vue";
+import { useProcessService } from "../services/Process.service";
 interface Props {
   selectedPlant: number | null;
   tableSearch: string;
 }
+
+const processService = useProcessService();
 
 // Props passed from the parent component
 const props = defineProps<Props>();
@@ -115,33 +118,28 @@ const totalItems = computed<number>(() => filteredItems.value.length);
 
 // Fetch processes from API
 const fetchProcesses = async (plantId: number | null) => {
-  let url = "http://localhost:3000/processes";
-  if (plantId) {
-    url = `${url}?plantId=${plantId}`;
-  }
-
+  loading.value = true;
   try {
-    const response = await axios.get(url);
-    processes.value = response.data; // Store the data in the processes array
-    loading.value = false; // Set loading to false once data is loaded
+    processes.value = await processService.getProcesses(plantId);
+    ToastService.success("Processes loaded successfully");
   } catch (error) {
-    console.error("Error fetching processes:", error);
+    ToastService.error("Failed to load processes");
+  } finally {
     loading.value = false;
   }
 };
 
 // Toggle active/inactive status function
 const toggleActiveStatus = async (process: Process): Promise<void> => {
-  const newStatus = !process.isActive;
   try {
-    const url = `http://localhost:3000/processes/${process.id}`;
-    const response = await axios.patch(url, {
-      isActive: newStatus,
-    });
-    process.isActive = response.data.isActive;
-    console.log("Status updated successfully:", response.data);
+    const updatedProcess = await processService.toggleProcessStatus(process);
+    const index = processes.value.findIndex((p) => p.id === process.id);
+    if (index !== -1) {
+      processes.value[index] = updatedProcess;
+    }
+    ToastService.success(`Process status updated successfully`);
   } catch (error) {
-    console.error("Error updating status:", error);
+    ToastService.error("Failed to update process status");
   }
 };
 
@@ -153,14 +151,11 @@ const editProcess = (process: Process): void => {
 // Delete process function
 const deleteProcess = async (id: number): Promise<void> => {
   try {
-    const url = `http://localhost:3000/processes/${id}`;
-    await axios.delete(url);
-    const index = processes.value.findIndex((process) => process.id === id);
-    if (index !== -1) {
-      processes.value.splice(index, 1); // Remove from the list
-    }
+    await processService.deleteProcess(id);
+    processes.value = processes.value.filter((process) => process.id !== id);
+    ToastService.success("Process deleted successfully");
   } catch (error) {
-    console.error("Error Deleting", error);
+    ToastService.error("Failed to delete process");
   }
 };
 
@@ -174,7 +169,7 @@ watch(
   (newPlantId) => {
     fetchProcesses(newPlantId);
   },
-  { immediate: false } // Trigger fetchProcesses immediately when component mounts
+  { immediate: false } // Dont Trigger fetchProcesses immediately when component mounts
 );
 
 // Watch for changes in tableSearch prop

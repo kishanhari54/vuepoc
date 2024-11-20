@@ -30,7 +30,7 @@
     {
       "id": "1",
       "process": "Grinding",
-      "description": "The grinding process of raw materials.s",
+      "description": "The grinding process of raw materials.",
       "isActive": true,
       "plantId": 1
     },
@@ -40,69 +40,6 @@
       "description": "The packaging process for final products.",
       "isActive": false,
       "plantId": 1
-    },
-    {
-      "id": "3",
-      "process": "Shipping",
-      "description": "The process of shipping products to customers.",
-      "isActive": true,
-      "plantId": 1
-    },
-    {
-      "id": "4",
-      "process": "Assembly",
-      "description": "The assembly process of product components...",
-      "isActive": true,
-      "plantId": 2
-    },
-    {
-      "id": "6",
-      "process": "Painting",
-      "description": "The process of painting product surfaces.",
-      "isActive": true,
-      "plantId": 2
-    },
-    {
-      "id": "8",
-      "process": "Inspection",
-      "description": "Inspection of product integrity and safety.",
-      "isActive": true,
-      "plantId": 3
-    },
-    {
-      "id": "9",
-      "process": "Packaging",
-      "description": "The packaging process for large orders.",
-      "isActive": true,
-      "plantId": 3
-    },
-    {
-      "id": "10",
-      "process": "Grinding",
-      "description": "Grinding of metals for precise manufacturing.",
-      "isActive": true,
-      "plantId": 4
-    },
-    {
-      "id": "11",
-      "process": "Assembly",
-      "description": "Assembly of mechanical components.",
-      "isActive": true,
-      "plantId": 4
-    },
-    {
-      "id": "12",
-      "process": "Maintenance",
-      "description": "Routine maintenance of machinery and equipment.",
-      "isActive": true,
-      "plantId": 4
-    },
-    {
-      "id": "13",
-      "process": "Packaging",
-      "description": "Packaging of finished goods for distribution.",
-      "isActive": true,
-      "plantId": 5
     },
     {
       "id": "14",
@@ -119,13 +56,6 @@
       "plantId": 5
     },
     {
-      "id": "e22b",
-      "process": "Test Process ",
-      "description": "145234",
-      "isActive": true,
-      "plantId": 1
-    },
-    {
       "id": "aacc",
       "process": "Test Process Demo",
       "description": "Meeting",
@@ -137,6 +67,48 @@
       "process": "Demo2",
       "description": "Meetings",
       "isActive": false,
+      "plantId": 3
+    },
+    {
+      "id": "b68a",
+      "process": "ASd",
+      "description": "asd",
+      "isActive": true,
+      "plantId": 1
+    },
+    {
+      "id": "58e2",
+      "process": "added",
+      "description": "asda",
+      "isActive": true,
+      "plantId": 1
+    },
+    {
+      "id": "4c38",
+      "process": "A",
+      "description": "AA",
+      "isActive": true,
+      "plantId": 1
+    },
+    {
+      "id": "aaa0",
+      "process": "CC",
+      "description": "CCC",
+      "isActive": true,
+      "plantId": 3
+    },
+    {
+      "id": "93ca",
+      "process": "CC",
+      "description": "CCCC",
+      "isActive": true,
+      "plantId": 3
+    },
+    {
+      "id": "7912",
+      "process": "CC",
+      "description": "CCC",
+      "isActive": true,
       "plantId": 3
     }
   ]

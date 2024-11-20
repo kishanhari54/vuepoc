@@ -24,5 +24,24 @@ export function useProcessService() {
       const response = await axiosInstance.get(`${baseUrl}/${id}`);
       return response.data;
     },
+
+    async getProcesses(plantId: number | null = null): Promise<Process[]> {
+      const url = plantId ? `${baseUrl}?plantId=${plantId}` : baseUrl;
+      const response = await axiosInstance.get(url);
+      return response.data;
+    },
+
+    async toggleProcessStatus(process: Process): Promise<Process> {
+      const response = await axiosInstance.patch(
+        `${baseUrl}/${process.id}`,
+        { isActive: !process.isActive },
+        { headers: { "Content-Type": "application/json" } }
+      );
+      return response.data;
+    },
+
+    async deleteProcess(id: number): Promise<void> {
+      await axiosInstance.delete(`${baseUrl}/${id}`);
+    },
   };
 }
