@@ -98,6 +98,7 @@
 <script setup lang="ts">
 import axiosInstance from "@/common/axios/axiosinstance";
 import Process from "@/common/interfaces/Process.interface.ts";
+import ToastService from "@/common/services/ToastNotification.service";
 import { required } from "@/common/util/formValidations"; // Import validation rules
 import {
   defineEmits,
@@ -109,7 +110,6 @@ import {
 } from "vue";
 import { useToast } from "vue-toastification";
 import { useMasterProcessStore } from "../stores/useMasterProcessStore";
-
 // Define props to receive data from parent component
 const props = defineProps<{
   modelValue: boolean;
@@ -181,7 +181,7 @@ const submitForm = async (): Promise<void> => {
             headers: { "Content-Type": "application/json" },
           }
         );
-        toast.success(`Process ${response.data.process} Updated`);
+        ToastService.success(`Process ${response.data.process} Updated`);
       } else {
         const response = await axiosInstance.post(
           "http://localhost:3000/processes",
@@ -190,7 +190,7 @@ const submitForm = async (): Promise<void> => {
             headers: { "Content-Type": "application/json" },
           }
         );
-        toast.success(`Process ${response.data.process} Added`);
+        ToastService.success(`Process ${response.data.process} Added`);
       }
     }
 
