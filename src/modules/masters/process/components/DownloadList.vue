@@ -1,3 +1,3 @@
 <template>
-  <v-btn variant="outlined" rounded="0" icon="custom:DownloadFile"></v-btn>
+  <v-btn variant="outlined" class="primary" icon="custom:DownloadFile"></v-btn>
 </template>

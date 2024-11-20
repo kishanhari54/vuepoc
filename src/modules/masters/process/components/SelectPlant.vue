@@ -1,26 +1,22 @@
 <template>
   <div class="section">
-    <v-row>
-      <v-col cols="3">
-        <div class="field-box">
-          <!-- Label for the Dropdown -->
-          <div class="label">Select Plant:</div>
-
-          <!-- v-select to dynamically populate with plant data -->
-          <v-select
-            label="Select a Plant"
-            v-model="selectedPlant"
-            :items="plants"
-            item-title="name"
-            item-value="id"
-            variant="solo-filled"
-            dense
-            clearable
-            outlined
-            :loading="loading"
-            @update:model-value="onPlantSelected"
-          ></v-select>
-        </div>
+    <v-row class="align-center">
+      <v-col cols="12" md="1">
+        <v-label> Select Plant: </v-label>
+      </v-col>
+      <v-col cols="12" md="2">
+        <v-select
+          v-model="selectedPlant"
+          :items="plants"
+          item-title="name"
+          item-value="id"
+          hide-details
+          density="compact"
+          variant="solo"
+          clearable
+          :loading="loading"
+          @update:model-value="onPlantSelected"
+        ></v-select>
       </v-col>
     </v-row>
   </div>
@@ -71,11 +67,3 @@ const fetchPlants = async (): Promise<void> => {
 // Fetch plants when the component is mounted
 onMounted(fetchPlants);
 </script>
-
-<style scoped>
-/*
-.section {
-  border: 1px solid var(--S-Grey-4, #d2d2d2);
-  padding: 10px 30px;
-} */
-</style>

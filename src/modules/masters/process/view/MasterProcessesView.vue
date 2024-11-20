@@ -3,8 +3,9 @@
     <div class="page-title">Master Process</div>
     <section class="page-actions">
       <SearchProcess @searchChanged="searchProcess"></SearchProcess>
-      <DownloadList></DownloadList>
       <UploadList></UploadList>
+      <DownloadList></DownloadList>
+
       <AddProcess @addProcessButtonClicked="addNewProcess()"></AddProcess>
     </section>
   </section>
@@ -19,7 +20,13 @@
       @editProcess="editProcess"
     ></ProcessList>
   </section>
-
+  <!--<AddProcessRightPopup
+    v-model="openDialogForm"
+    :mode="mode"
+    :processId="processId"
+    @processUpdated="reloadProcessList"
+  >
+  </AddProcessRightPopup>-->
   <AddProcessPopup
     v-model="openDialogForm"
     :mode="mode"
@@ -93,10 +100,20 @@ const editProcess = (id) => {
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
   }
+  margin-bottom: 14px;
+}
+
+.page-data {
+  .option {
+    border: 1px solid #d2d2d2;
+    padding: 30px;
+    margin-bottom: 20px;
+  }
 }
 
 .page-actions {
   display: flex;
   gap: 10px;
+  align-items: center;
 }
 </style>

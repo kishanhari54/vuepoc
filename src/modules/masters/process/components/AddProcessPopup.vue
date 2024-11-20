@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="dialog" max-width="500px">
+  <v-dialog v-model="dialog" max-width="923px">
     <v-card>
       <v-progress-circular
         v-if="loading"
@@ -14,18 +14,20 @@
         <v-form v-model="formValid" ref="form">
           <div v-for="(field, index) in fields" :key="index" class="mb-4">
             <!-- Problem Field (Mandatory) -->
-            <v-row>
-              <v-col cols="12" md="4">
+            <v-row class="align-center">
+              <v-col cols="12" md="2">
                 <v-label>
                   <span>Process</span>
                   <span class="text-danger"> *</span>
                   <!-- Asterisk for mandatory -->
                 </v-label>
               </v-col>
-              <v-col cols="12" md="8">
+              <v-col cols="12" md="3">
                 <v-text-field
+                  variant="solo"
+                  hide-details
                   v-model="field.process"
-                  label="Process"
+                  placeholder="Enter"
                   :rules="[required]"
                 />
               </v-col>
@@ -33,13 +35,15 @@
 
             <!-- Description Field (Text Area) -->
             <v-row>
-              <v-col cols="12" md="4">
+              <v-col cols="12" md="2">
                 <v-label>Description</v-label>
               </v-col>
-              <v-col cols="12" md="8">
+              <v-col cols="12" md="10">
                 <v-textarea
+                  hide-details
+                  variant="solo"
                   v-model="field.description"
-                  label="Description"
+                  placeholder="Enter"
                   rows="3"
                 />
               </v-col>
@@ -47,15 +51,21 @@
           </div>
 
           <!-- Add More Button -->
-          <v-btn @click="addMoreFields" color="primary" class="mt-3">
+          <v-btn @click="addMoreFields" class="primary mt-3" variant="outlined">
             Add More
           </v-btn>
         </v-form>
       </v-card-subtitle>
 
       <v-card-actions>
-        <v-btn @click="closeDialog">Cancel</v-btn>
-        <v-btn @click="submitForm" :disabled="!formValid" color="primary"
+        <v-btn @click="closeDialog" variant="outlined" class="secondary"
+          >Cancel</v-btn
+        >
+        <v-btn
+          @click="submitForm"
+          :disabled="!formValid"
+          class="primary"
+          variant="flat"
           >Save</v-btn
         >
       </v-card-actions>

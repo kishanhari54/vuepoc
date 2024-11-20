@@ -2,17 +2,17 @@
   <div class="d-flex align-center justify-space-between pa-4 pagination">
     <div class="d-flex flex-column">
       <div class="d-flex ga-2 align-center">
-        Items Per Page
+        <v-label>Items Per Page</v-label>
         <v-select
           v-model="localItemsPerPage"
           :items="itemsPerPageOptions"
-          variant="outlined"
+          variant="solo"
           density="compact"
           class="items-per-page-select"
           hide-details
         />
       </div>
-      <div>Total Items : {{ totalItems }}</div>
+      <div><v-label>Total Items : </v-label>{{ totalItems }}</div>
     </div>
 
     <v-pagination
@@ -118,5 +118,16 @@ const changePage = (newPage: number): void => {
 <style>
 .pagination {
   height: 100%;
+  font-family: Open Sans;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.07px;
+  text-align: left;
+
+  color: #b4b4b4;
+}
+.v-pagination__item--is-active {
+  background-color: black;
+  color: white;
 }
 </style>

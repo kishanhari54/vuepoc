@@ -3,10 +3,10 @@
     <v-text-field
       v-model="searchQuery"
       prepend-inner-icon="mdi-magnify"
-      density="compact"
-      label="Search"
-      variant="solo"
+      placeholder="Search"
       hide-details
+      variant="solo"
+      density="compact"
       single-line
     ></v-text-field>
   </div>

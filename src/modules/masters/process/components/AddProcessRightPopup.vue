@@ -65,7 +65,7 @@
               </v-row>
             </div>
 
-            <v-btn @click="addMoreFields" color="primary" class="mt-3">
+            <v-btn @click="addMoreFields" class="primary mt-3" variant="flat">
               Add More
             </v-btn>
           </v-form>
@@ -75,9 +75,12 @@
         <v-divider></v-divider>
         <v-card-actions class="flex-grow-0 pa-4">
           <v-spacer></v-spacer>
-          <v-btn variant="text" @click="closeDialog">Cancel</v-btn>
+          <v-btn variant="outlined" class="secondary" @click="closeDialog"
+            >Cancel</v-btn
+          >
           <v-btn
-            color="primary"
+            variant="flat"
+            class="primary"
             @click="submitForm"
             :disabled="!formValid"
             :loading="loading"
@@ -90,51 +93,7 @@
   </v-dialog>
 </template>
 
-<style scoped>
-.dialog-layout {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-.loading-spinner {
-  position: absolute;
-  top: 50%;
-  left: 65%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-}
-
-.overlay {
-  width: 30%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(4px);
-  cursor: pointer;
-}
-
-.dialog-content {
-  width: 70%;
-  height: 100%;
-  border-radius: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-:deep(.v-overlay__scrim) {
-  opacity: 0 !important;
-}
-
-:deep(.v-dialog) {
-  background: transparent !important;
-  box-shadow: none;
-}
-
-:deep(.v-card-text) {
-  padding: 24px;
-}
-</style>
+<style scoped></style>
 
 <script setup lang="ts">
 import axiosInstance from "@/common/axios/axiosinstance";

@@ -1,5 +1,5 @@
 <template>
-  <v-btn @click="openDialog" density="default" size="large">Add Process</v-btn>
+  <v-btn @click="openDialog" variant="flat" class="primary">Add Process</v-btn>
 
   <!-- AddProcessPopup component is commented out but can be used as shown below -->
   <!--
