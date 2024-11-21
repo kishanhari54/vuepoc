@@ -7,7 +7,6 @@
       <DownloadList></DownloadList>
 
       <AddProcess @addProcessButtonClicked="addNewProcess()"></AddProcess>
-      <AddProcess @addProcessButtonClicked="addNewProcessDialog()"></AddProcess>
     </section>
   </section>
   <section class="page-data">
@@ -36,10 +35,9 @@
   />
 </template>
 <script setup lang="ts">
-import { dialogService } from "@/common/modules/DialogWrapper/dialogService";
 import { ref } from "vue";
 import AddProcess from "../components/AddProcess";
-import AddProcessPopupDialog from "../components/AddProcessPopupDialog.vue";
+
 import DownloadList from "../components/DownloadList";
 import ProcessList from "../components/ProcessList";
 import SearchProcess from "../components/SearchProcess";
@@ -67,7 +65,6 @@ const searchProcess = (value) => {
 
 const addNewProcess = () => {
   mode.value = "add";
-  //processId.value = value?.id;
   openDialogForm.value = true;
 };
 
@@ -82,27 +79,5 @@ const editProcess = (id) => {
   mode.value = "edit"; // Set mode to edit
   processId.value = id; // Set the process ID
   openDialogForm.value = true;
-};
-
-const addNewProcessDialog = () => {
-  dialogService.open({
-    component: AddProcessPopupDialog,
-    metadata: {
-      title: "Example Dialog",
-      timestamp: new Date().toISOString(),
-      data: {
-        mode: "edit", // Set mode to edit
-        processId: "1",
-      },
-    },
-    width: 600,
-    persistent: true,
-    onClose: (result) => {
-      console.log("Example dialog closed with result:", result);
-      if (result.status == "success") {
-        reloadProcessList();
-      }
-    },
-  });
 };
 </script>

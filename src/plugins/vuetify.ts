@@ -1,5 +1,6 @@
 // Styles
 import DownloadFile from "@/assets/icons/DownloadFile.vue";
+import RearrangeIcon from "@/assets/icons/RearrangeIcon.vue";
 import UploadDocument from "@/assets/icons/UploadDocument.vue";
 import "@mdi/font/css/materialdesignicons.css";
 import "vuetify/styles";
@@ -9,7 +10,7 @@ import { h } from "vue";
 import { IconProps, VuetifyOptions, createVuetify } from "vuetify";
 
 // Define custom icons set
-const customIcons = { UploadDocument, DownloadFile };
+const customIcons = { UploadDocument, DownloadFile, RearrangeIcon };
 
 // Define custom icon component
 const custom = {

@@ -15,9 +15,11 @@
       <v-skeleton-loader type="table-row@10"></v-skeleton-loader>
     </template>
 
-    <template v-slot:item="{ item, index }">
+    <template v-slot:item="{ item }">
       <tr>
-        <td>{{ index + 1 }}</td>
+        <td class="w-auto">
+          <v-icon icon="custom:RearrangeIcon" rounded="0"></v-icon>
+        </td>
         <td class="bold">{{ item.name }}</td>
         <td>{{ item.description }}</td>
         <td class="action-buttons">
