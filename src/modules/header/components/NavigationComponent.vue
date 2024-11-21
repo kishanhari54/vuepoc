@@ -5,6 +5,7 @@
     </li>
     <li>
       Master Process
+      <v-icon>mdi-menu-down</v-icon>
       <v-menu activator="parent">
         <v-list>
           <v-list-item
@@ -25,8 +26,12 @@
 <script setup>
 const items = [
   {
+    title: "Plants",
+    route: "/master/plants",
+  },
+  {
     title: "Process",
-    route: "master/process",
+    route: "/master/process",
   },
   {
     title: "Login",

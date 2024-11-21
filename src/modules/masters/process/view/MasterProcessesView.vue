@@ -141,4 +141,8 @@ const addNewProcessDialog = () => {
   gap: 10px;
   align-items: center;
 }
+
+.search-field {
+  width: 300px;
+}
 </style>

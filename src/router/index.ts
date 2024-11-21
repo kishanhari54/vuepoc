@@ -18,6 +18,12 @@ const routes: Array<RouteRecordRaw> = [
         component: () =>
           import("../modules/masters/process/view/MasterProcessesView.vue"),
       },
+      {
+        path: "master/plants",
+        name: "plants",
+        component: () =>
+          import("../modules/masters/plants/view/MasterPlantsView.vue"),
+      },
       /*{
         path: "/masters",
         name: "masters",
