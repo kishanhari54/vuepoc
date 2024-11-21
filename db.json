@@ -43,7 +43,7 @@
       "id": "2",
       "process": "Packaging",
       "description": "The packaging process for final products.",
-      "isActive": false,
+      "isActive": true,
       "plantId": 1
     },
     {

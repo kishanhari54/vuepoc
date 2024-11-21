@@ -205,6 +205,9 @@ body {
     &.bold {
       font-weight: 700;
     }
+    &.action-buttons .v-icon {
+      color: #dc0032;
+    }
   }
 }
 

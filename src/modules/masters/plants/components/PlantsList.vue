@@ -24,10 +24,10 @@
         <td>{{ item.description }}</td>
         <td class="action-buttons">
           <!-- Action buttons with icons -->
-          <v-btn icon @click="editProcess(item)">
+          <v-btn variant="text" icon @click="editProcess(item)">
             <v-icon>mdi-pencil</v-icon>
           </v-btn>
-          <v-btn icon @click="deleteProcess(item.id)">
+          <v-btn variant="text" icon @click="deleteProcess(item.id)">
             <v-icon>mdi-delete</v-icon>
           </v-btn>
         </td>
