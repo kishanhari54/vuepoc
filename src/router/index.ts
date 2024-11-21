@@ -1,3 +1,4 @@
+import { useUserStore } from "@/common/stores/userStore";
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 
@@ -38,6 +39,7 @@ const routes: Array<RouteRecordRaw> = [
         ],
       },*/
     ],
+    meta: { requiresAuth: true },
   },
   {
     path: "/login",
@@ -60,6 +62,15 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  const userStore = useUserStore();
+  if (to.meta.requiresAuth && !userStore.user) {
+    next({ name: "login" });
+  } else {
+    next();
+  }
 });
 
 export default router;

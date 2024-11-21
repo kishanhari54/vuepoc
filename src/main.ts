@@ -3,6 +3,7 @@ import { createApp } from "vue";
 import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
 import App from "./App.vue";
+import { useUserStore } from "./common/stores/userStore";
 import vuetify from "./plugins/vuetify";
 import { loadFonts } from "./plugins/webfontloader";
 import router from "./router";
@@ -26,5 +27,12 @@ app.use(Toast, {
   icon: true,
   rtl: false,
 });
+
+// Check for user in local storage on app startup
+const storedUser = localStorage.getItem("user");
+if (storedUser) {
+  const userStore = useUserStore(pinia);
+  userStore.user = JSON.parse(storedUser);
+}
 
 app.mount("#app");
