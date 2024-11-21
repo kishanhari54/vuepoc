@@ -4,7 +4,7 @@
       <router-link to="/dashboard"> Dashboard </router-link>
     </li>
     <li>
-      Master Process
+      Masters
       <v-icon>mdi-menu-down</v-icon>
       <v-menu activator="parent">
         <v-list>
