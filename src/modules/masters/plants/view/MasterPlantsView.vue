@@ -2,7 +2,7 @@
   <section class="page-header">
     <div class="page-title">Master Plants</div>
     <section class="page-actions">
-      <SearchPlant @searchChanged="searchProcess"></SearchPlant>
+      <SearchPlant @searchChanged="filterPlants"></SearchPlant>
       <AddPlant @addPlantButtonClicked="addNewPlantDialog()"></AddPlant>
     </section>
   </section>
@@ -35,7 +35,7 @@ const tableSearch = ref("");
 // New reactive variables for mode and processId
 const plantsList = ref(null); // Correctly define ref
 
-const searchPlant = (value) => {
+const filterPlants = (value) => {
   tableSearch.value = value;
 };
 
@@ -100,38 +100,4 @@ const addNewPlantDialog = () => {
   });
 };
 </script>
-<style>
-.page-header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-
-  .page-title {
-    font-family: Open Sans;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 32.68px;
-    letter-spacing: 0.04em;
-    text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
-  }
-  margin-bottom: 14px;
-}
-
-.page-data {
-  .option {
-    border: 1px solid #d2d2d2;
-    padding: 30px;
-    margin-bottom: 20px;
-  }
-}
-
-.page-actions {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-</style>
+<style></style>

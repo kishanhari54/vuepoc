@@ -2,9 +2,6 @@
   <v-app>
     <v-main>
       <router-view />
-      <!-- <v-btn color="primary" @click="openExampleDialog">
-        Open Example Dialog
-      </v-btn>-->
       <DialogProvider />
     </v-main>
   </v-app>
@@ -12,32 +9,6 @@
 
 <script lang="ts" setup>
 import DialogProvider from "@/common/modules/DialogWrapper/DialogProvider.vue";
-//import { dialogService } from "@/common/modules/DialogWrapper/dialogService";
-//import ExampleDialog from "@/components/ExampleDialog.vue";
-
-/*const openExampleDialog = () => {
-  dialogService.open({
-    component: ExampleDialog,
-    metadata: {
-      title: "Example Dialog",
-      timestamp: new Date().toISOString(),
-      data: { foo: "bar" },
-    },
-    width: 600,
-    persistent: true,
-  });
-};
-*/
-/*export default defineComponent({
-  name: "App",
-
-  data() {
-    return {
-    
-      //
-    };
-  },
-}); */
 </script>
 
 <style>
@@ -46,16 +17,6 @@ body {
 }
 .v-pagination__list {
   align-items: center !important;
-}
-
-/*Field Styles */
-
-.field-box {
-  display: flex;
-  align-items: center;
-  .label {
-    min-width: 30%;
-  }
 }
 
 /* Dialog Component */
@@ -129,11 +90,6 @@ body {
   font-family: Open Sans !important;
   font-size: 16px !important;
   font-weight: 700 !important;
-  /*line-height: 21.79px;
-  letter-spacing: 0.02em;
-  text-align: center;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none; */
   border-radius: 6px !important;
 
   &.primary {
@@ -162,7 +118,9 @@ body {
 }
 
 /* Text field */
-
+.search-field {
+  min-width: 300px;
+}
 .v-label {
   color: #828282;
   font-weight: 400;
@@ -248,5 +206,40 @@ body {
       font-weight: 700;
     }
   }
+}
+
+/* Page Layouting */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+
+  .page-title {
+    font-family: Open Sans;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32.68px;
+    letter-spacing: 0.04em;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+  }
+  margin-bottom: 14px;
+}
+
+.page-data {
+  .option {
+    border: 1px solid #d2d2d2;
+    padding: 30px;
+    margin-bottom: 20px;
+  }
+}
+
+.page-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 </style>
