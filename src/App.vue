@@ -2,22 +2,42 @@
   <v-app>
     <v-main>
       <router-view />
+      <!-- <v-btn color="primary" @click="openExampleDialog">
+        Open Example Dialog
+      </v-btn>-->
+      <DialogProvider />
     </v-main>
   </v-app>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script lang="ts" setup>
+import DialogProvider from "@/common/modules/DialogWrapper/DialogProvider.vue";
+//import { dialogService } from "@/common/modules/DialogWrapper/dialogService";
+//import ExampleDialog from "@/components/ExampleDialog.vue";
 
-export default defineComponent({
+/*const openExampleDialog = () => {
+  dialogService.open({
+    component: ExampleDialog,
+    metadata: {
+      title: "Example Dialog",
+      timestamp: new Date().toISOString(),
+      data: { foo: "bar" },
+    },
+    width: 600,
+    persistent: true,
+  });
+};
+*/
+/*export default defineComponent({
   name: "App",
 
   data() {
     return {
+    
       //
     };
   },
-});
+}); */
 </script>
 
 <style>

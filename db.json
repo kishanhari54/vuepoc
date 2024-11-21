@@ -30,7 +30,7 @@
     {
       "id": "1",
       "process": "Grinding",
-      "description": "The grinding process of raw materials.",
+      "description": "The grinding process of raw materialssss",
       "isActive": true,
       "plantId": 1
     },
