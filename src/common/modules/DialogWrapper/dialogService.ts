@@ -6,6 +6,7 @@ interface DialogOptions {
   fullscreen: boolean;
   width?: string | number;
   persistent?: boolean;
+  vDialogCss: string[];
   onClose?: (result?: any) => void;
 }
 
@@ -17,6 +18,7 @@ class DialogService {
   private _width = ref("500px");
   private _persistent = ref(false);
   private _fullscreen = ref(false);
+  private _vDialogCss = ref<string[]>([]);
   private _onClose?: (result?: any) => void;
 
   //private constructor() {}
@@ -48,6 +50,10 @@ class DialogService {
     return this._fullscreen;
   }
 
+  get vDialogCss() {
+    return this._vDialogCss;
+  }
+
   open(options: DialogOptions) {
     this._component.value = markRaw(options.component);
     this._metadata.value = options.metadata;
@@ -55,6 +61,7 @@ class DialogService {
     this._persistent.value = options.persistent || false;
     this._onClose = options.onClose;
     this._fullscreen.value = options.fullscreen;
+    this._vDialogCss.value = options.vDialogCss || [];
     this._dialog.value = true;
   }
 

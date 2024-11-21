@@ -17,6 +17,7 @@ const handleClose = (result: any) => {
     :width="dialogService.width.value"
     :persistent="dialogService.persistent.value"
     @click:outside="dialogService.close()"
+    :class="dialogService.vDialogCss.value"
   >
     <component
       v-if="dialogService.component.value"

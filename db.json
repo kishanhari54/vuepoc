@@ -1,11 +1,6 @@
 {
   "plants": [
     {
-      "id": "1",
-      "name": "Plant A",
-      "description": "Description for Plant A"
-    },
-    {
       "id": "3",
       "name": "Plant C",
       "description": "Description for Plant C"

@@ -63,6 +63,7 @@ const editPlant = (id) => {
         plantId: id,
       },
     },
+    vDialogCss: ["right-aligned-dialog"],
     width: 600,
     persistent: true,
     fullscreen: true,

@@ -39,7 +39,15 @@ body {
       gap: 20px;
     }
   }
+  &.right-aligned-dialog {
+    .v-card {
+      max-width: fit-content;
+      min-width: 70%;
+      margin-left: auto;
+    }
+  }
 
+  /*
   .dialog-layout {
     display: flex;
     width: 100%;
@@ -54,6 +62,7 @@ body {
       cursor: pointer;
     }
 
+    .v-card,
     .dialog-content {
       width: 70%;
       height: 100%;
@@ -81,7 +90,7 @@ body {
     :deep(.v-card-text) {
       padding: 24px;
     }
-  }
+  } */
 }
 
 /* Button Styles */
