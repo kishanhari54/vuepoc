@@ -153,7 +153,7 @@ const submitForm = async (): Promise<void> => {
 const fetchPlantData = async (id: string | null): Promise<void> => {
   try {
     const response = await plantsService.getPlants(id);
-    debugger;
+
     fields.value = [
       {
         name: response[0].name,
@@ -175,9 +175,7 @@ onMounted(() => {
 });
 
 const loadOnEdit = () => {
-  debugger;
   if (props.metadata.data.mode === "edit" && props.metadata.data.plantId) {
-    debugger;
     fetchPlantData(props.metadata.data.plantId);
   }
 };

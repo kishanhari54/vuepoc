@@ -126,7 +126,6 @@ const closeDialog = (data:any): void => {
 }; */
 
 const handleSave = (value: Process[]) => {
-  debugger;
   // Return some data to the parent
   emit("close", {
     status: "success",
@@ -179,7 +178,7 @@ const submitForm = async (): Promise<void> => {
         ToastService.success(`Process ${createdProcess.process} Added`);
       }
     }
-    debugger;
+
     handleSave(newProcess);
     emit("processUpdated", newProcess);
   } catch (error) {

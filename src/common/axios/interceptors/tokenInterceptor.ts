@@ -106,7 +106,7 @@ export default {
       },
       (error: AxiosError) => {
         // Handle request error
-        debugger;
+        
         return Promise.reject(error);
       }
     );

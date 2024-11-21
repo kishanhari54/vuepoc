@@ -98,7 +98,6 @@ const addNewProcessDialog = () => {
     width: 600,
     persistent: true,
     onClose: (result) => {
-      debugger;
       console.log("Example dialog closed with result:", result);
       if (result.status == "success") {
         reloadProcessList();

@@ -3,7 +3,6 @@ import { dialogService } from "./dialogService";
 
 // Handle the close event and pass the data to the dialog service
 const handleClose = (result: any) => {
-  debugger;
   dialogService.close(result); // Pass the result to the dialog service
 };
 </script>

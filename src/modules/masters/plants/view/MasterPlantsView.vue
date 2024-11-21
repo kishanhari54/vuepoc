@@ -8,7 +8,7 @@
   </section>
   <section class="page-data">
     <PlantsList
-      ref="plantsLista"
+      ref="plantsList"
       :tableSearch="tableSearch"
       @editPlant="editPlant"
     ></PlantsList>
@@ -92,7 +92,6 @@ const addNewPlantDialog = () => {
     width: 600,
     persistent: true,
     onClose: (result) => {
-      debugger;
       console.log("Example dialog closed with result:", result);
       if (result && result.status == "success") {
         reloadList();
