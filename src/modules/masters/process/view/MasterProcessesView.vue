@@ -37,7 +37,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import AddProcess from "../components/AddProcess";
-
+import AddProcessPopup from "../components/AddProcessPopup";
 import DownloadList from "../components/DownloadList";
 import ProcessList from "../components/ProcessList";
 import SearchProcess from "../components/SearchProcess";
