@@ -51,16 +51,15 @@ class DialogService {
     this._dialog.value = true;
   }
 
-  close = (result?: any) => {
+  close(result?: any) {
     this._dialog.value = false;
-    debugger;
     this._onClose?.(result);
     setTimeout(() => {
       this._component.value = null;
       this._metadata.value = null;
       this._onClose = undefined;
     }, 300);
-  };
+  }
 }
 
 export const dialogService = DialogService.getInstance();
