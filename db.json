@@ -6,11 +6,6 @@
       "description": "Description for Plant A"
     },
     {
-      "id": "2",
-      "name": "Plant B",
-      "description": "Description for Plant B"
-    },
-    {
       "id": "3",
       "name": "Plant C",
       "description": "Description for Plant C"
@@ -24,11 +19,6 @@
       "id": "5",
       "name": "Plant E",
       "description": "Description for Plant E"
-    },
-    {
-      "id": "37aa",
-      "name": "Plant",
-      "description": "Added"
     }
   ],
   "processes": [

@@ -9,6 +9,10 @@ const handleClose = (result: any) => {
 
 <template>
   <v-dialog
+    :scrim="true"
+    scrollable
+    :fullscreen="dialogService.fullscreen.value"
+    transition="dialog-right-transition"
     v-model="dialogService.isOpen.value"
     :width="dialogService.width.value"
     :persistent="dialogService.persistent.value"

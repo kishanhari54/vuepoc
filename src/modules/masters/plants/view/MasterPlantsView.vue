@@ -65,6 +65,7 @@ const editPlant = (id) => {
     },
     width: 600,
     persistent: true,
+    fullscreen: true,
     onClose: (result) => {
       console.log("Example dialog closed with result:", result);
       if (result && result.status == "success") {

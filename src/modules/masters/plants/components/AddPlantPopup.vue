@@ -1,12 +1,10 @@
 <template>
   <v-card>
-    <v-progress-circular v-if="loading" model-value="20"></v-progress-circular>
-
     <v-card-title>
       <span class="headline">Add Plant</span>
     </v-card-title>
 
-    <v-card-subtitle>
+    <v-card-text>
       <v-form v-model="formValid" ref="form">
         <div v-for="(field, index) in fields" :key="index" class="mb-4">
           <!-- Problem Field (Mandatory) -->
@@ -51,7 +49,7 @@
           Add More
         </v-btn>
       </v-form>
-    </v-card-subtitle>
+    </v-card-text>
 
     <v-card-actions>
       <v-btn @click="handleCancel" variant="outlined" class="secondary"

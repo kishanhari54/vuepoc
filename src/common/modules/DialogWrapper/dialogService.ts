@@ -3,6 +3,7 @@ import { markRaw, ref, shallowRef, type Component } from "vue";
 interface DialogOptions {
   component: Component;
   metadata?: any;
+  fullscreen: boolean;
   width?: string | number;
   persistent?: boolean;
   onClose?: (result?: any) => void;
@@ -15,6 +16,7 @@ class DialogService {
   private _metadata = ref<any>(null);
   private _width = ref("500px");
   private _persistent = ref(false);
+  private _fullscreen = ref(false);
   private _onClose?: (result?: any) => void;
 
   //private constructor() {}
@@ -42,12 +44,17 @@ class DialogService {
     return this._persistent;
   }
 
+  get fullscreen() {
+    return this._fullscreen;
+  }
+
   open(options: DialogOptions) {
     this._component.value = markRaw(options.component);
     this._metadata.value = options.metadata;
     this._width.value = options.width?.toString() || "500px";
     this._persistent.value = options.persistent || false;
     this._onClose = options.onClose;
+    this._fullscreen.value = options.fullscreen;
     this._dialog.value = true;
   }
 

@@ -39,48 +39,48 @@ body {
       gap: 20px;
     }
   }
-}
 
-.dialog-layout {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  position: relative;
-
-  .overlay {
-    width: 30%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(4px);
-    cursor: pointer;
-  }
-
-  .dialog-content {
-    width: 70%;
-    height: 100%;
-    border-radius: 0;
+  .dialog-layout {
     display: flex;
-    flex-direction: column;
-  }
-  .loading-spinner {
-    position: absolute;
-    top: 50%;
-    left: 65%;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-  }
+    width: 100%;
+    height: 100%;
+    position: relative;
 
-  :deep(.v-overlay__scrim) {
-    opacity: 0 !important;
-  }
+    .overlay {
+      width: 30%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      cursor: pointer;
+    }
 
-  :deep(.v-dialog) {
-    background: transparent !important;
-    box-shadow: none;
-  }
+    .dialog-content {
+      width: 70%;
+      height: 100%;
+      border-radius: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .loading-spinner {
+      position: absolute;
+      top: 50%;
+      left: 65%;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+    }
 
-  :deep(.v-card-text) {
-    padding: 24px;
+    :deep(.v-overlay__scrim) {
+      opacity: 0 !important;
+    }
+
+    :deep(.v-dialog) {
+      background: transparent !important;
+      box-shadow: none;
+    }
+
+    :deep(.v-card-text) {
+      padding: 24px;
+    }
   }
 }
 
