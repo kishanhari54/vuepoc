@@ -12,12 +12,12 @@
           hide-details
         />
       </div>
-      <div><v-label>Total Items : </v-label>{{ totalItems }}</div>
+      <div><v-label>Total Items : </v-label>{{ totalItemsLength }}</div>
     </div>
 
     <v-pagination
       v-model="localCurrentPage"
-      :length="Math.ceil(totalItems / localItemsPerPage)"
+      :length="Math.ceil(totalItemsLength / localItemsPerPage)"
       :total-visible="7"
       class="custom-pagination"
       @update:model-value="handlePageChange"
@@ -29,7 +29,7 @@
           :disabled="localCurrentPage === 1"
           class="text-none px-2"
           size="small"
-          @click="changePage(localCurrentPage - 1)"
+          @click="handlePageChange(localCurrentPage - 1)"
         >
           Previous
         </v-btn>
@@ -40,11 +40,11 @@
           variant="text"
           v-bind="props"
           :disabled="
-            localCurrentPage === Math.ceil(totalItems / localItemsPerPage)
+            localCurrentPage === Math.ceil(totalItemsLength / localItemsPerPage)
           "
           class="text-none px-2"
           size="small"
-          @click="changePage(localCurrentPage + 1)"
+          @click="handlePageChange(localCurrentPage + 1)"
         >
           Next
         </v-btn>
@@ -60,7 +60,7 @@ import { defineEmits, defineProps, ref, watch } from "vue";
 interface PaginationProps {
   currentPage: number;
   itemsPerPage: number;
-  totalItems: number;
+  totalItemsLength: number;
   itemsPerPageOptions: number[]; // Corrected type for array
 } */
 
@@ -68,13 +68,13 @@ interface PaginationProps {
 const props = defineProps({
   currentPage: {
     type: Number,
-    required: true,
+    default: 1,
   },
   itemsPerPage: {
     type: Number,
-    required: true,
+    default: 10,
   },
-  totalItems: {
+  totalItemsLength: {
     type: Number,
     required: true,
   },
@@ -104,15 +104,17 @@ watch(localItemsPerPage, (newValue: number) => {
   emit("update:itemsPerPage", newValue);
 });
 
+/*
 // Change page function for custom Next/Previous buttons
 const changePage = (newPage: number): void => {
   // Ensure newPage is within valid range
-  const totalPages = Math.ceil(props.totalItems / localItemsPerPage.value);
+  const totalPages = Math.ceil(props.totalItemsLength / localItemsPerPage.value);
   if (newPage >= 1 && newPage <= totalPages) {
     localCurrentPage.value = newPage;
+    console.log(localCurrentPage.value);
     emit("update:currentPage", newPage);
   }
-};
+}; */
 </script>
 
 <style>

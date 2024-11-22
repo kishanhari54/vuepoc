@@ -12,16 +12,13 @@
       :tableSearch="tableSearch"
       @editPlant="editPlant"
     ></PlantsList>
+	
   </section>
 
-  <!-- <AddProcessPopup
-    v-model="openDialogForm"
-    :mode="mode"
-    :processId="processId"
-    @processUpdated="reloadProcessList"
-  />-->
+  
 </template>
 <script setup lang="ts">
+
 import { dialogService } from "@/common/modules/DialogWrapper/dialogService";
 import { ref } from "vue";
 import AddPlant from "../components/AddPlant.vue";
@@ -39,19 +36,7 @@ const filterPlants = (value) => {
   tableSearch.value = value;
 };
 
-/*
-const addNewProcess = () => {
-  mode.value = "add";
-  //processId.value = value?.id;
-  openDialogForm.value = true;
-};
 
-const editProcess = (id) => {
-  mode.value = "edit"; // Set mode to edit
-  processId.value = id; // Set the process ID
-  openDialogForm.value = true;
-};
-*/
 
 const editPlant = (id) => {
   dialogService.open({

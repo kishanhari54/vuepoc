@@ -6,7 +6,7 @@
     item-value="id"
     :loading="loading"
     :search="searchQuery"
-    :items-length="totalItems"
+    :items-length="filteredItems.length"
     v-model:items-per-page="itemsPerPage"
     v-model:page="page"
   >
@@ -35,11 +35,9 @@
     </template>
     <template v-slot:bottom>
       <VuePagination
-        :currentPage="page"
-        :itemsPerPage="itemsPerPage"
-        :totalItems="totalItems"
-        @update:currentPage="handlePageChange"
-        @update:itemsPerPage="updateItemsPerPage"
+        :totalItemsLength="filteredItems.length"
+        @update:currentPage="page = $event"
+        @update:itemsPerPage="itemsPerPage = $event"
       />
     </template>
   </v-data-table>
@@ -80,19 +78,6 @@ const searchQuery = ref<string>(""); // Search query
 const page = ref<number>(1); // Current page
 const itemsPerPage = ref<number>(10); // Items per page
 
-// Event handlers
-const handlePageChange = (newPage: number): void => {
-  loading.value = true;
-  page.value = newPage;
-  setTimeout(() => {
-    loading.value = false;
-  }, 200);
-};
-
-const updateItemsPerPage = (newItemsPerPage: number): void => {
-  itemsPerPage.value = newItemsPerPage;
-};
-
 const headers = [
   { title: "", key: "" },
   { title: "Plant Name", key: "name" },
@@ -109,8 +94,6 @@ const filteredItems = computed<Plant[]>(() => {
     );
   });
 });
-
-const totalItems = computed<number>(() => filteredItems.value.length);
 
 // Fetch fetchPlants from API
 const fetchPlants = async (plantId: number | null) => {

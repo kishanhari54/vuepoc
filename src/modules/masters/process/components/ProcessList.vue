@@ -38,9 +38,7 @@
     </template>
     <template v-slot:bottom>
       <VuePagination
-        :currentPage="page"
-        :itemsPerPage="itemsPerPage"
-        :totalItems="totalItems"
+        :total-items-length="totalItems"
         @update:currentPage="handlePageChange"
         @update:itemsPerPage="updateItemsPerPage"
       />
