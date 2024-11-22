@@ -5,7 +5,6 @@
     :items="filteredItems"
     item-value="id"
     :loading="loading"
-    :search="searchQuery"
     :items-length="totalItems"
     v-model:items-per-page="itemsPerPage"
     v-model:page="page"

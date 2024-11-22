@@ -2,11 +2,11 @@
   <v-data-table
     sticky-header
     :headers="headers"
-    :items="filteredItems"
+    :items="plants"
     item-value="id"
     :loading="loading"
     :search="searchQuery"
-    :items-length="filteredItems.length"
+    :items-length="plants.length"
     v-model:items-per-page="itemsPerPage"
     v-model:page="page"
   >
@@ -35,7 +35,7 @@
     </template>
     <template v-slot:bottom>
       <VuePagination
-        :totalItemsLength="filteredItems.length"
+        :totalItemsLength="plants.length"
         @update:currentPage="page = $event"
         @update:itemsPerPage="itemsPerPage = $event"
       />
@@ -47,7 +47,6 @@
 import Plant from "@/common/interfaces/Plant.interface.ts";
 import { ToastService } from "@/common/services/ToastNotification.service";
 import {
-  computed,
   defineEmits,
   defineExpose,
   defineProps,
@@ -85,15 +84,17 @@ const headers = [
   { title: "Actions", key: "actions" },
 ];
 
+/*
 // Computed properties
 const filteredItems = computed<Plant[]>(() => {
+  return plants.value;
   return plants.value.filter((item) => {
     return (
       item.description &&
       item.description.toLowerCase().includes(searchQuery.value.toLowerCase())
     );
   });
-});
+});*/
 
 // Fetch fetchPlants from API
 const fetchPlants = async (plantId: number | null) => {
